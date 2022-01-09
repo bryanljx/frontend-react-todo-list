@@ -64,6 +64,8 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
+const serverURL = "http://127.0.0.1:3001/api/v1";
+
 const EditingForm = (props: Props) => {
     const classes = useStyles();
     const context = useContext(GlobalContext);
@@ -137,7 +139,7 @@ const EditingForm = (props: Props) => {
             }
 
             // Update todo
-            axios.put(`http://127.0.0.1:3001/api/v1/todos/${editedTodo.id}`, submitTodo)
+            axios.put(`${serverURL}/todos/${editedTodo.id}`, submitTodo)
                 // .then(res => console.log(res.data))
                 .catch(error => {
                     console.log(error);
@@ -147,7 +149,7 @@ const EditingForm = (props: Props) => {
             // Update the tags belonging to the todo
             const tagID = editedTodo.tags.map((tag) => tag.id);
             const editedTodoTags = { tags: tagID, empty: tagID.length === 0}
-            axios.post(`http://127.0.0.1:3001/api/v1/todos/${editedTodo.id}/tags`, editedTodoTags)
+            axios.post(`${serverURL}/todos/${editedTodo.id}/tags`, editedTodoTags)
                 .then(res => editTodo(res.data, ...todos))
                 .catch(error => {
                     console.log(error);

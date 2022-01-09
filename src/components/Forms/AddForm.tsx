@@ -54,6 +54,8 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
+const serverURL = "http://127.0.0.1:3001/api/v1";
+
 const AddForm = (props: Props) => {
     const classes = useStyles();
     const context = useContext(GlobalContext);
@@ -128,7 +130,7 @@ const AddForm = (props: Props) => {
             }
             
             // Create the new todo first
-            axios.post(`http://127.0.0.1:3001/api/v1/todos`, testTodo)
+            axios.post(`${serverURL}/todos`, testTodo)
                 .then(res => {
                     // console.log(res.data.id);
                     const modifiedTodo = {
@@ -141,7 +143,7 @@ const AddForm = (props: Props) => {
                     const editedTodoTags = { tags: tagID, empty: tagID.length === 0 }
 
                     // Then add selected tags to todo
-                    axios.post(`http://127.0.0.1:3001/api/v1/todos/${modifiedTodo.id}/tags`, editedTodoTags)
+                    axios.post(`${serverURL}/todos/${modifiedTodo.id}/tags`, editedTodoTags)
                         .then(res => addTodo(res.data, ...todos))
                         .catch(error => {
                             console.log(error);

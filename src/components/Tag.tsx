@@ -35,6 +35,8 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
+const serverURL = "http://127.0.0.1:3001/api/v1";
+
 const Tag = (props: Props) => {
     const classes = useStyles();
     const context = useContext(GlobalContext);
@@ -70,7 +72,7 @@ const Tag = (props: Props) => {
         setFilterTags(newFilterTags);
         
         // Post delete request to Rails server
-        axios.delete(`http://127.0.0.1:3001/api/v1/tags/${deletedTag.id}`)
+        axios.delete(`${serverURL}/tags/${deletedTag.id}`)
             // .then(res => console.log(res))
             .catch(error => {
                 console.log(error);

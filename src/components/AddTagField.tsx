@@ -23,6 +23,8 @@ interface tag {
     name: string;
 }
 
+const serverURL = "http://127.0.0.1:3001/api/v1";
+
 const AddTagField = () => {
     const classes = useStyles();
     const context = useContext(GlobalContext);
@@ -50,7 +52,7 @@ const AddTagField = () => {
             // const newTag = { id: 4, name: tagName };
             // addTag(newTag, ...tags);
             
-            axios.post(`http://127.0.0.1:3001/api/v1/tags`, modifiedTag)
+            axios.post(`${serverURL}/tags`, modifiedTag)
                 .then(res => addTag(res.data, ...tags))
                 .catch(error => {
                     console.log(error);

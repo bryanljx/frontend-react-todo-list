@@ -56,6 +56,8 @@ const TealCheckbox = withStyles({
     checked: {},
     })((props: any) => <Checkbox color="default" {...props} />);
 
+const serverURL = "http://127.0.0.1:3001/api/v1";
+
 const Todo = (props: Props) => {
     const classes = useStyles();
     const context = useContext(GlobalContext);
@@ -68,7 +70,7 @@ const Todo = (props: Props) => {
         )
         setTodos(newTodos);
 
-        axios.delete(`http://127.0.0.1:3001/api/v1/todos/${deletedTodo.id}`)
+        axios.delete(`${serverURL}/todos/${deletedTodo.id}`)
             // .then(res => console.log(res))
             .catch(error => {
                 console.log(error);
@@ -93,7 +95,7 @@ const Todo = (props: Props) => {
         const submitTodo = {
             todo: modifiedTodo
         }
-        axios.put(`http://127.0.0.1:3001/api/v1/todos/${modifiedTodo.id}`, submitTodo)
+        axios.put(`${serverURL}/todos/${modifiedTodo.id}`, submitTodo)
             // .then(res => console.log(res))
             .catch(error => {
                 console.log(error);

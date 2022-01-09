@@ -37,6 +37,8 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
+const serverURL = "http://127.0.0.1:3001/api/v1";
+
 const TodoList = () => {
     const classes = useStyles();
     const context = useContext(GlobalContext);
@@ -54,7 +56,7 @@ const TodoList = () => {
 
     // Fetch data from Rails server
     useEffect(() => {
-            axios.get(`http://127.0.0.1:3001/api/v1/todos`)
+            axios.get(`${serverURL}/todos`)
                 .then(res => {
                     setTodos(res.data);
                 })
@@ -63,7 +65,7 @@ const TodoList = () => {
                     alert("An error has occured! Please refresh the page");
                 });
         
-            axios.get(`http://127.0.0.1:3001/api/v1/tags`)
+            axios.get(`${serverURL}/tags`)
                 .then(res => {
                     setTags(res.data);
                 })
