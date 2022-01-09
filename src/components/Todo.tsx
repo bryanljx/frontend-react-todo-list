@@ -56,7 +56,8 @@ const TealCheckbox = withStyles({
     checked: {},
     })((props: any) => <Checkbox color="default" {...props} />);
 
-const serverURL = "http://127.0.0.1:3001/api/v1";
+// const serverURL = "http://127.0.0.1:3001/api/v1";
+const serverURL = "https://todo-list-backend-rails-api.herokuapp.com/api/v1";
 
 const Todo = (props: Props) => {
     const classes = useStyles();

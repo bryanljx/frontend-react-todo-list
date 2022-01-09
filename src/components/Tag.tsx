@@ -35,7 +35,8 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
-const serverURL = "http://127.0.0.1:3001/api/v1";
+// const serverURL = "http://127.0.0.1:3001/api/v1";
+const serverURL = "https://todo-list-backend-rails-api.herokuapp.com/api/v1";
 
 const Tag = (props: Props) => {
     const classes = useStyles();
