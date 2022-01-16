@@ -63,7 +63,7 @@ const TodoList = () => {
                 })
                 .catch(error => {
                     console.log(error);
-                    alert("An error has occured! Please refresh the page");
+                    // alert("An error has occured! Please refresh the page");
                 });
         
             axios.get(`${serverURL}/tags`)
@@ -72,7 +72,7 @@ const TodoList = () => {
                 })
                 .catch(error => {
                     console.log(error);
-                    alert("An error has occured! Please refresh the page");
+                    // alert("An error has occured! Please refresh the page");
                 });
     }, []);
 

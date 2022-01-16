@@ -72,7 +72,7 @@ const AddForm = (props: Props) => {
     const [title, setTitle] = React.useState("");
     const [description, setDescription] = React.useState("");
     const [isTitleEmpty, setIsTiTleEmpty] = React.useState(false);
-    const [isReloading, setIsReloading] = useState(false);
+    // const [isReloading, setIsReloading] = useState(false);
 
     const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setTitle(event.target.value);
@@ -113,15 +113,8 @@ const AddForm = (props: Props) => {
                     todoTags.push(currTag);
                 }
             )
-            const newTodo: todo = {
-                id: -1,
-                title: title,
-                description: description,
-                completion: false,
-                tags: todoTags
-            }
             
-            const testTodo: any = {
+            const submitTodo: any = {
                 todo: {
                     title: title,
                     description: description,
@@ -130,7 +123,7 @@ const AddForm = (props: Props) => {
             }
             
             // Create the new todo first
-            axios.post(`${serverURL}/todos`, testTodo)
+            axios.post(`${serverURL}/todos`, submitTodo)
                 .then(res => {
                     // console.log(res.data.id);
                     const modifiedTodo = {
@@ -139,6 +132,7 @@ const AddForm = (props: Props) => {
                     }
 
                     // To ease the difficulty handling params in Rails server
+                    // Pass an array of the tag ids.
                     const tagID = modifiedTodo.tags.map((tag: tag) => tag.id);
                     const editedTodoTags = { tags: tagID, empty: tagID.length === 0 }
 
@@ -154,12 +148,12 @@ const AddForm = (props: Props) => {
                     console.log(error);
                     alert("An error has occured! Please refresh the page");
                 });
-            // addTodo(newTodo, ...todos);
             // setIsReloading(true);
             resetChange();
         }
     }
 
+    // Reload data after CRUD operation
     // if (isReloading) {
     //     axios.get(`http://127.0.0.1:3001/api/v1/todos`)
     //             .then(res => {

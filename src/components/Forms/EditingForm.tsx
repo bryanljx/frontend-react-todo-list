@@ -85,7 +85,7 @@ const EditingForm = (props: Props) => {
     const [description, setDescription] = React.useState(props.todo.description);
 
     // Re-fetches data from Rails server after CRUD operation
-    const [isReloading, setIsReloading] = useState(false);
+    // const [isReloading, setIsReloading] = useState(false);
     const isTitleEmpty = title === "";
 
     const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -131,8 +131,6 @@ const EditingForm = (props: Props) => {
                 description: description,
                 tags: selectedTags
             }
-
-            // editTodo(editedTodo, ...todos);
 
             const submitTodo: any = {
                 todo: editedTodo

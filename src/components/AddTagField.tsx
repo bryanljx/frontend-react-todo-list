@@ -33,7 +33,7 @@ const AddTagField = () => {
     const setTags = context.setTags;
 
     const [tagName, setTagName] = useState("");
-    const [isReloading, setIsReloading] = useState(false);
+    // const [isReloading, setIsReloading] = useState(false);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTagName(e.target.value)
