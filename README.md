@@ -6,6 +6,8 @@
 
 **Application Link:** [todo-list](https://todo-list-frontend-react.herokuapp.com/)
 
+Note: On the first load, the hosted web app might run into some issues or be a bit slow. Do refresh the page and wait for the data to be fetched from the backend server which also has to be started up too. While improvements can be made to include a loading animation as mentioned below, this has to do with heroku dynos being idle when there is no traffic so the first load might be a bit slow.
+
 **Writeups:**
 
 -   [Mid-assignment writeup](./Writeup/BryanLimJingXiang_A0233605M.pdf)
